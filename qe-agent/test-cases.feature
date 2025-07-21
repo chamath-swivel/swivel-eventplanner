@@ -70,16 +70,6 @@ Feature: Event Planner App
         And I try to submit
         Then I should see red borders and error messages on invalid fields
 
-    Scenario: Form logic and API triggers are unit tested
-        Given I have flutter_test or equivalent set up
-        When I mock form submission and API calls
-        Then validation and API triggers should be asserted successfully
-
     Scenario: App handles API failure gracefully
         Given an API failure occurs
         Then I should see an appropriate message or fallback UI
-
-    # Other Notes
-    # - Test with both Android and iOS simulators
-    # - Test offline mode behavior if supported
-    # - Test app responsiveness on various screen sizes
