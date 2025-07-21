@@ -1,0 +1,36 @@
+Feature: Email and Password Login
+    As a user
+    I want to be able to log in with my email and password
+    So that I can access my account securely
+
+    Scenario: User can log in with email and password
+        Given I am on the login page
+        When I enter a valid email and password
+        And I click the login button
+        Then I should be redirected to the main page
+        And I should see a welcome message
+    
+    Scenario: User can't log in with invalid email and valid password
+        Given I am on the login page
+        When I enter a invalid email and valid password
+        And I click the login button
+        Then I should see an error message
+
+    Scenario: User can't log in with valid email and invalid password
+        Given I am on the login page
+        When I enter a valid email and invalid password
+        And I click the login button
+        Then I should see an error message
+
+    Scenario: Users with abc.com domain need to see  a error message
+        Given I am on the login page
+        When I enter an email with abc.com domain and valid password
+        And I click the login button
+        Then I should see an error message
+
+
+    Scenario: Users with google.com domain need to see  a error message
+        Given I am on the login page
+        When I enter an email with google.com domain and valid password
+        And I click the login button
+        Then I should see an error message, "Please use your Google account to log in"
